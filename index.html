@@ -1,81 +1,248 @@
+<!doctype html>
+<html lang="tr"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#304c40"><title>Tiny Café · Mahalle Kahvecisi</title>
+<style>
+:root{--ink:#253e35;--leaf:#365948;--paper:#fffaf0;--line:#c9c5ac;--rust:#904e38;font-family:"Trebuchet MS",system-ui,sans-serif;color:var(--ink);background:#f4efdf}*{box-sizing:border-box}body{margin:0;background-image:radial-gradient(#ac9d7230 .8px,transparent .9px);background-size:6px 6px}main,header>div{width:min(1120px,94%);margin:auto}header{background:var(--ink);color:#fff9e8;border-bottom:4px solid #ccad77}header>div,.row,nav{display:flex;align-items:center;justify-content:space-between;gap:12px}header>div{min-height:68px}.brand{font:bold 28px Georgia,serif;letter-spacing:-1px}.brand i{color:#eac694;font-style:normal}nav{gap:5px}button{font:inherit;cursor:pointer;color:var(--ink);touch-action:manipulation;min-height:44px;border:1px solid var(--line);border-radius:8px;background:var(--paper);padding:9px 14px;font-weight:650}button:hover:enabled{filter:brightness(.95)}button:focus-visible{outline:3px solid #bf792f;outline-offset:2px}button:disabled{opacity:.58;cursor:default}nav button{background:transparent;color:#fff7e4;border-color:transparent}nav button[aria-pressed=true]{background:#f5ecd8;color:var(--ink)}h1,h2,h3,p{margin:0}h1,h2,h3{font-family:Georgia,serif}h1{font-size:clamp(31px,4vw,47px);letter-spacing:-2px}h2{font-size:27px}h3{font-size:23px}.top{padding:23px 0 18px}.stats{display:flex;align-items:center;gap:16px}.label,.num,small{font:700 11px/1.55 ui-monospace,Consolas,monospace;letter-spacing:.08em}.label{color:#786449;text-transform:uppercase}.meter{background:#d7d4bf;height:5px;border-radius:5px;width:110px;margin-top:5px}.meter i{display:block;background:var(--leaf);height:100%;border-radius:5px}.cash{border:1px solid #b5b398;padding:9px 13px;border-radius:30px;background:#fff9e9;font-weight:bold}.grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,1fr);gap:18px;align-items:stretch}.scene,.card{border:1px solid #aea992;border-radius:12px;overflow:hidden;background:var(--paper);box-shadow:0 3px 0 #a69f7c30}.scene{background:#314b40;align-self:start}.scene canvas{width:100%;display:block;image-rendering:pixelated}.caption{display:flex;justify-content:space-between;color:#fff3db;padding:10px 15px;font:600 12px ui-monospace,monospace}.card{padding:20px}.ticket{background:repeating-linear-gradient(0deg,transparent 0 26px,#c4b59922 26px 27px),var(--paper);display:flex;flex-direction:column;gap:10px}.ticket .row{border-bottom:1px dashed var(--line);padding-bottom:10px}blockquote{margin:0;line-height:1.45}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto}.actions button{flex:1}.primary{background:var(--leaf);color:#fff7e5;border-color:var(--leaf)}.bench{margin:18px 0}.steps,.stock,.listing{display:flex;flex-wrap:wrap;gap:8px}.steps{margin:12px 0;color:#685944}.step{border:1px dashed #bcae90;padding:6px 10px;border-radius:6px;font-size:14px}.done{background:#e1ead9;border-style:solid}.stock button{background:#f3ecda;min-width:96px}.stock{margin:10px 0}.foot{font-size:12px;color:#605f50;padding:0 0 20px}.msg{color:var(--rust);font-weight:650;line-height:1.4;min-height:1.4em}.listing{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(245px,100%),1fr));margin:16px 0}.listing .card{display:grid;align-content:start;gap:9px}.listing p{line-height:1.5}.muted{color:#726b5a}.group{border-top:1px dashed var(--line);padding-top:10px}.hidden,[hidden]{display:none!important}@media(max-width:720px){.grid{grid-template-columns:1fr;gap:12px}.card{padding:16px}.top{padding:14px 0}.stats{gap:7px}.meter{width:80px}header>div{flex-wrap:wrap;gap:3px;padding:8px 0}.brand{font-size:23px}nav button{font-size:13px;padding:7px}.bench{margin:12px 0}.caption{padding:8px 12px}.ticket{gap:8px}.stock button{min-width:0}.cash{padding:7px}.top .label{font-size:10px}}@media(max-width:380px){nav{gap:0}.brand{font-size:21px}.stats{flex-direction:column;align-items:end}.top h1{font-size:31px}}
 
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>♡</title>
+.brand{max-width:55%;overflow-wrap:anywhere}.welcome,.closing{max-width:650px;margin:26px auto}.welcome h1,.closing h2{margin:6px 0 12px}.welcome p,.closing p{line-height:1.55;margin:10px 0}.welcome label{display:block;font-weight:700;margin:20px 0 5px}.welcome input{padding:12px;background:#fff;border:1px solid #a7997f;border-radius:7px;font:inherit;width:100%;margin:0 0 10px}.welcome button{width:100%}.welcome canvas{display:block;width:100%;image-rendering:pixelated;border-radius:8px}.queuebar{margin:12px 0;padding:12px;background:#ebe4ce;border-radius:8px;display:flex;align-items:center;flex-wrap:wrap;gap:10px}.queuebar span{font-size:14px}.ledger .row{padding:6px 0;border-bottom:1px dashed var(--line)}.ledger .row:last-child{font-size:1.18em}.closing label{display:block;padding:10px 0}.closing h3{margin-top:16px}.progress{font-size:11px}.caption span{line-height:1.4}@media(max-width:720px){header>div{justify-content:center}.brand{max-width:100%;text-align:center}nav{flex-shrink:0}}
+</style>
+<header><div><span class="brand"><i>☕</i> <span id="brandName">Tiny Café</span></span><nav aria-label="Kafe bölümleri"><button data-tab="bar">Tezgâh</button><button data-tab="book">Tarifler</button><button data-tab="shop">Dükkân</button></nav></div></header>
+<main><form class="card welcome" id="welcome"><canvas id="cover" width="384" height="162" aria-label="Sıla ve kedisinin mahalle kafesi"></canvas><h1>Sıla’nın ilk sabahı</h1><p>Sıla gözlüğünü düzeltti, kedisi tezgâhın yanındaki minderine kıvrıldı. Kapıyı açmadan önce tabelaya bir isim lazım.</p><label for="cafeName">Kafenin adı</label><input id="cafeName" required maxlength="28" autocomplete="off" placeholder="Örneğin Pati Kahvesi"><button class="primary">Tabelayı as ve kapıyı aç →</button></form>
+<section id="summary" class="card closing" hidden><span class="label">KASA DEFTERİ</span><h2 id="summaryTitle"></h2><p id="dailyResult"></p><div id="ledger" class="ledger"></div><h3>Son günlerin kârı</h3><p id="trend"></p><h3>Yarınki vardiya</h3><div id="shiftstaff"></div><button class="primary" id="tomorrow">Yeni günü aç →</button></section>
+<div id="top" class="row top"><div><div class="label" id="day"></div><h1 id="title"></h1></div><div class="stats"><div><b class="num" id="level"></b><div id="levelProgress" class="progress"></div><div class="meter"><i id="xp"></i></div></div><span class="cash" id="cash"></span></div></div>
+<section id="bar"><div class="queuebar"><b id="shiftClock"></b><span id="queue"></span></div><div class="grid"><div class="scene"><canvas width="384" height="162" id="view" role="img" aria-label="Çizgili tenteli mahalle kafesi ve tezgâhta bekleyen müşteri"></canvas><div class="caption"><span>● Kafe açık</span><span>Sıla &amp; Pati · Çınar Sokak</span></div></div><article class="card ticket"><div class="row"><span class="label" id="ticketNo"></span><span class="num" id="visits"></span></div><h2 id="guest"></h2><blockquote id="speech"></blockquote><b id="order"></b><div class="actions" id="talk"></div></article></div>
+<div class="card bench"><span class="label">HAZIRLAMA İSTASYONU</span><h2 id="benchTitle"></h2><div id="steps" class="steps"></div><p class="msg" role="status" id="msg"></p><div class="stock" id="stock"></div><div class="actions" id="tools"></div></div></section>
+<section id="library" hidden><p id="intro"></p><div class="listing" id="list"></div></section><footer class="foot" id="save"></footer></main>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+const gear={
+ machine:['Espresso makinesi',1,0,'Espresso ve Americano demler.'],
+ wand:['Buhar çubuğu',2,24,'Sütlü kahveler için sütü köpürtür.'],
+ pot:['Bakır cezve',3,36,'Türk kahvesini ağır ateşte pişirir.'],
+ spice:['Baharat rafı',4,45,'Tarçınlı latte ve mocha için tezgâhı genişletir.'],
+ oven:['Taş fırın',5,64,'Brownie, kurabiye ve hamur işleri pişirir.'],
+ mold:['Kelepçeli kalıp',6,52,'Peynirli kekleri fırında pişirir.'],
+ ice:['Buz makinesi',7,62,'Soğuk içecekleri hazırlar.'],
+ chill:['Soğuk vitrin',8,70,'Tiramisuyu dinlendirir.'],
+ plant:['Pencere çiçekleri',2,28,'Her serviste 2 ₺ ek bahşiş kazandırır.'],
+ awning:['Adaçayı yeşili tente',4,54,'Kafenin tentesini yeniler. Her serviste 2 ek XP kazandırır.']
+};
+// Level, required equipment, ordered ingredients, final preparation, sale price.
+const menu=[
+ ['Espresso',1,'machine','Çekirdek','Shot çek',12],['Americano',1,'machine','Çekirdek|Sıcak su','Su ile tamamla',15],
+ ['Cappuccino',2,'wand','Çekirdek|Süt|Süt köpüğü','Köpüğü kaşıkla',21],['Latte',2,'wand','Çekirdek|Süt','Sütü buharla',20],
+ ['Türk kahvesi',3,'pot','İnce kahve|Soğuk su','Cezvede köpürt',25],['Tarçınlı latte',4,'wand spice','Çekirdek|Süt|Tarçın','Tarçını serp',30],['Mocha',4,'wand spice','Çekirdek|Çikolata|Süt','Sütle birleştir',32],
+ ['Brownie',5,'oven','Çikolata|Tereyağı|Yumurta|Un','Fırında pişir',36],['Damla çikolatalı kurabiye',5,'oven','Tereyağı|Un|Çikolata','Tepside pişir',33],
+ ['Cheesecake',6,'oven mold','Bisküvi|Labne|Yumurta','Kalıpta pişir',44],['Kruvasan',6,'oven','Un|Tereyağı|Yumurta','Hamuru katla ve pişir',40],
+ ['Buzlu karamelli latte',7,'wand ice','Buz|Karamel|Süt|Çekirdek','Soğuk servis hazırla',46],
+ ['Tiramisu',8,'chill','Kedidili|Çekirdek|Mascarpone|Kakao','Vitrinde dinlendir',56],['San Sebastián cheesecake',8,'oven mold','Labne|Krema|Yumurta|Un','Üstünü kızart',58]
+].map(([name,lv,need,ingredients,finish,price])=>({name,lv,need:need.split(' '),items:ingredients.split('|'),finish,price}));
+const guests=[
+ ['Defne','Çiçekçi','Dükkânın önündeki yasemin sonunda açtı. Kokusunu aldın mı?','Yasemin nasıl bakılır?','Güneşi ve biraz sabrı seviyor. Bir dal da sana getiririm.'],
+ ['Cem','Vapur kaptanı','Vapur kalkmadan bir mola verebildim. Bugün deniz çarşaf gibi.','En sevdiğin iskele?','Gün doğarken Moda. O saatte martılar bile sessiz.'],
+ ['Mina','Çizer','Şu pencerenin ışığı çizim defterime çok yakışacak.','Çizimini görebilir miyim?','Bak, şu köşeye de senin kafeyi ekledim.'],
+ ['Ali','Sahaf','Bugün bir kitabın arasından eski bir tren bileti çıktı.','Bilet nereye gidiyor?','Kars’a! Bir kitabın içinde ikinci bir hikâye buldum.']
+];
+const key='tiny-cafe-mahalle-v3',oldKey='tiny-cafe-mahalle-v2';
+const limits=[0,32,90,180,310,490,720,1010,1360,1780,2280,2870,3560,4360,5280,6330];
+Object.assign(gear,{
+ grinder:['Otomatik değirmen',5,175,'Çekirdek ve ince kahve hazırlamak 2 dakika yerine 1 dakika sürer.'],
+ runner:['Ece · Salon görevlisi',6,210,'Çalıştığı gün müşterileri karşılar. Bekleme sürelerine 10 dakika ekler. Günlük ücret 12 ₺.'],
+ press:['Çift başlıklı makine',9,365,'Makine içeceklerinin son adımını 4 dakikadan 1 dakikaya indirir. Flat white açılır.'],
+ mixer:['Hamur mikseri',10,410,'Briyoş için hamur yoğurur. Un ekleme süresini 1 dakikaya indirir.'],
+ baker:['Deniz · Barista',11,465,'Çalıştığı gün her siparişin ilk malzemesini hazırlar. Günlük ücret 20 ₺.'],
+ syrup:['Şurup ocağı',12,475,'Mevsim meyveleri için şurup kaynatır.'],
+ stone:['Taş değirmen',13,510,'Fıstık ve tahinli tatlıları menüye ekler.'],
+ dripper:['Seramik demleyici',14,560,'Tek kökenli kahveyi kâğıt filtrede demler.'],
+ copper:['Köz ocağı',15,650,'Közde damla sakızlı kahve pişirir.'],
+ patisserie:['Pastacı tezgâhı',16,780,'Sıla’nın imza pastası için katları birleştirir.']
+});
+for(const [name,lv,need,items,finish,price] of [
+ ['Flat white',9,'press wand','Çekirdek|Süt','İnce köpüğü dök',52],['Portakallı briyoş',10,'mixer oven','Un|Tereyağı|Portakal','Hamuru yoğur ve pişir',58],
+ ['Ballı cortado',11,'press','Çekirdek|Bal|Süt','Shot ile sütü dengele',61],['Vişneli soğuk kahve',12,'syrup ice','Vişne|Buz|Çekirdek','Vişne şurubunu gezdir',65],
+ ['Tahinli fıstıklı kurabiye',13,'stone oven','Tahin|Antep fıstığı|Un','Öğüt ve fırınla',71],['Çiçeksi filtre kahve',14,'dripper','Filtre|Çekirdek|Sıcak su','Dairesel hareketle demle',72],
+ ['Közde sakızlı kahve',15,'pot copper','İnce kahve|Damla sakızı|Soğuk su','Közde ağır ağır pişir',78],['Sıla’nın imza pastası',16,'patisserie oven','Un|Vişne|Krema|Çikolata','Katları birleştir',92]
+])menu.push({name,lv,need:need.split(' '),items:items.split('|'),finish,price});
+guests.push(['Eylül','Seramikçi'],['Arda','Bisiklet tamircisi'],['İpek','Öğretmen'],['Ozan','Postacı'],['Lale','Terzi'],['Efe','Öğrenci'],['Duru','Müzisyen'],['Nuri','Manav'],['Neşe','Hemşire'],['Bora','Fotoğrafçı'],['Aslı','Fırıncı'],['Umay','Mimar'],['Can','Kurye'],['Rana','Yüzücü']);
+const yusuf=guests.length;
+guests.push(['Yusuf','Tanıdık bir yüz']);
+const stories=[
+ [guests[0].slice(2),['Söz verdiğim yasemin dalını suya koydum. Minik kökler çıktı!','Cam kenarına koyalım mı?','Olur. Sıla, kedin toprağı eşelemesin diye üzerine çakıl dizeceğim.'],['Bizim yasemin ilk çiçeğini açtı. Bir ad verelim mi?','Adı Köpük olsun.','Köpük! Saksıya küçük bir etiket yazıyorum.']],
+ [guests[1].slice(2),['Dün Moda’da düdüğü çalmadım. Bir karabatak iskelede uyuyordu.','Sonra uyandı mı?','Bir martı simidini düşürünce hepimizden önce o atladı.'],['Emekli olunca sabah seferini özlerim diye korkuyordum.','İlk çayın burada hazır.','Öyleyse rotam belli. İskele, gazete, sonra senin tezgâh.']],
+ [guests[2].slice(2),['Geçen çizimde eksik biri var. Kedin bugün poz verir mi?','Şu taburede uyur.','Tamam, bir pati dışarıda. Kıpırdamadan yakaladım!'],['İlk baskıyı sana getirdim. Bak, kedinin bıyıkları bile çıkmış.','Kasaya asalım.','Benim ilk sergim de senin kafende açılmış oldu.']],
+ [guests[3].slice(2),['Kars biletinin sahibini buldum. Kitabı torunu getirmiş.','Bileti ona verdin mi?','Evet, dedesinin el yazısını görünce hemen tanıdı.'],['Torunu bir kart yollamış. Trene binip aynı yolu gitmiş.','Arkasında ne yazıyor?','“Bir bilet iki kişiyi ayrı yıllarda aynı yere götürdü.”']],
+ [['Kulpu biraz eğri bir fincan yaptım. Atmaya kıyamadım.','Bir de ben tutayım.','Sol elde tam oturuyor, değil mi? Bunu hiç düşünmemiştim.'],['Solaklar için üç fincan daha yaptım. İlkini sana ayırdım.','İlk kahveyi sen iç.','Kil kokusu gitmiş, şimdi mis gibi kahve kokuyor.'],['Atölyeye solak bir çırak geldi. O eğri fincanı hemen seçti.','Kendi takımını yapsın mı?','Bu akşam tezgâhı ona bırakacağım.']],
+ [['Kapıda eski bir zil buldum. Sesi hâlâ pırıl pırıl.','Çalıp deneyelim.','Duydun mu? Sanki yazlıkta dondurmacı geçiyor.'],['O zili takacağım bisiklet hazır. Ama selesi çok yüksek.','Küçük birine mi gidiyor?','Yeğenime. Sokağın ilk turunu burada bitirecek.'],['Yeğenim bugün ilk kez desteksiz sürdü. Zili duydun mu?','Camdan el salladım!','Bütün yol sana kahraman gibi göründüğünü anlattı.']]
+];
+stories[yusuf]=[
+ ['Sıla, gözlüğün sana çok yakışıyor. Gülümseyince burası daha da güzel oluyor.','Gülümse.','Şimdi günüm güzelleşti. Bir kahve de alırsam tamamdır.'],
+ ['Bugün gelirken seni düşündüm. Bu gül senin için, Sıla.','Gülü al, teşekkür et.','Gülün yanında küçücük bir not var. “Günün, gülüşün kadar güzel olsun. — Yusuf”'],
+ ['Sıla, bu kadar işi yaparken herkese güzel bir söz yetiştirmeni seviyorum.','Bunu fark etmene sevindim.','Fark etmemek zor. Seninle iki dakika konuşunca günün yorgunluğu azalıyor.']
+];
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+// After a regular's story ends, their next conversation draws on the current shift.
+function catchUp(who){
+ const d=s.d,last=s.history.at(-1),favourites=['yasemin','Moda iskelesi','çizim defteri','sahafın vitrini','fincanlar','bisiklet zili'];
+ const lines=[
+ ['Sıla, '+s.name+' açılalı '+d.n+' gün olmuş. İlk sabahı hatırlıyor musun?','İlk sohbetimizi hatırlat.','Benim aklımda hâlâ '+favourites[who]+' var. Bir kahveyle nereden nereye!'],
+ ['Geçerken baktım, '+(d.queue.length?d.queue.length+' kişi kapıda bekliyor.':'cam kenarı boş.')+' Pati nerede?','Minderini göster.','Yine en güneşli yeri bulmuş. Yer seçmeyi ondan öğrenmeli.'],
+ ['Dün nasıl geçti, Sıla? Akşam kapının önünden geçtim.','Dünkü servisi anlat.',last?'Bir günde '+last.served+' servis mi? Yarın arkadaşımı da getireyim.':'Yeni açıldığını anlatınca yüzü aydınlandı.'],
+ ['Bugün menüden kendime başka bir şey seçmek istedim. Senin favorin ne?','Yeni bir tarif öner.','O zaman bir dahaki gelişimde '+pickNewest().name+' deneyeceğim.'],
+ ['Bu kaçıncı kahvemiz oldu acaba?','Ziyaretleri say.','Tam '+s.visits[who]+' ziyaret! İlk geldiğimde birbirimizin adını bile bilmiyorduk.']
+ ];
+ if(who===yusuf)lines.splice(0,lines.length,
+ ['Sıla, bugün de gülüşünü görmeye uğradım.','Hoş geldin, Yusuf.','Böyle karşılanınca insanın yine gelesi geliyor.'],
+ ['Bu kafeye kattığın her küçük ayrıntı çok güzel. Tam senin gibi özenli.','En çok hangisini sevdin?','Senin kahve hazırlarken keyifle gülümsemeni. Pati de ikinci sırada.'],
+ ['Sıla, gözlüğünün ardından bana bakıp gülünce ne söyleyeceğimi unutuyorum.','Kahve siparişini de mi?','Onu hatırlıyorum ama biraz daha burada kalabilirim.'],
+ ['Bugün biraz yorulmuş gibisin. Yine de herkesi ne güzel karşılıyorsun.','Kısa bir mola iyi gelir.','Ben de kahvemi yavaş içerim. İki dakika oturup konuşuruz.']
+ );
+ const other=lines.map((_,i)=>i).filter(i=>i!==(s.lastTalk||{})[who]);
+ const index=pick(other);return {text:lines[index],index};
+}
+function pickNewest(){return menu.filter(available).at(-1)}
+const blankDay=(n,opening)=>({n,opening,minutes:0,arrivals:0,next:0,queue:[],sales:0,tips:0,ingredients:0,invest:0,served:0,lost:0,closed:false,staff:[]});
+let s={coins:25,xp:0,count:0,owned:['machine'],friends:Array(18).fill(0),visits:Array(18).fill(0),name:'',history:[],recent:[],d:blankDay(1,25),job:null},tab='bar',note='',saved=true;
+const level=()=>limits.filter(n=>s.xp>=n).length;
+const available=r=>r.lv<=level()&&r.need.every(k=>s.owned.includes(k));
+try{
+ const raw=JSON.parse(localStorage.getItem(key));
+ if(raw&&raw.d&&Array.isArray(raw.visits)&&Array.isArray(raw.owned))s=raw;
+ else{
+ const old=JSON.parse(localStorage.getItem(oldKey));
+ if(old&&Array.isArray(old.owned)&&Number.isFinite(old.xp)){
+ const prev=[0,18,45,81,126,180,243,315],i=prev.filter(x=>old.xp>=x).length-1;
+ s.coins=old.coins;s.count=old.count;s.owned=old.owned;s.xp=limits[i]+(i===7?old.xp-315:Math.floor((old.xp-prev[i])*(limits[i+1]-limits[i])/(prev[i+1]-prev[i])));
+ old.friends.forEach((v,k)=>{s.friends[k]=v;s.visits[k]=v});s.d=blankDay(1+Math.floor(s.count/5),s.coins);
+ if(old.job&&old.job.stage!=='paid'){s.job={...old.job,chapter:-1,id:1};s.d.arrivals=1;s.d.next=8}
+ }}
+}catch{}
+// Extend existing saves when the neighbourhood gains a new customer.
+for(const field of ['friends','visits'])while(s[field].length<guests.length)s[field].push(0);
+s.roseGiven=s.roseGiven===true;
+const target=()=>Math.min(18,5+Math.floor((s.d.n-1)/2));
+const wage=()=>s.d.staff.reduce((sum,k)=>sum+(k==='runner'?12:20),0);
+const rent=()=>8+Math.min(32,Math.floor((s.d.n-1)/2)*2);
+const gap=()=>Math.max(4,13-Math.floor(s.d.n/3));
+function arrival(){
+ const d=s.d,pool=menu.filter(available),newest=Math.max(...pool.map(r=>r.lv));
+ const recipe=pick(d.arrivals%3===1?pool.filter(r=>r.lv===newest):pool);
+ const ppl=guests.map((g,i)=>i).filter(i=>i<Math.min(yusuf,8+d.n)&&!s.recent.includes(i)&&!d.queue.some(j=>j.who===i)&&s.job?.who!==i);
+ if(!ppl.length)return;
+ const regular=ppl.filter(i=>stories[i]&&s.friends[i]<stories[i].length);
+ const yusufDue=d.n%3===2&&d.arrivals===1&&s.lastYusufDay!==d.n;
+ const who=yusufDue?yusuf:!s.count&&!d.arrivals?0:pick(regular.length&&d.arrivals%3===0?regular:ppl);
+ if(who===yusuf)s.lastYusufDay=d.n;
+ s.recent=[...s.recent,who].slice(-3);s.visits[who]++;
+ const chapter=stories[who]&&s.friends[who]<stories[who].length&&(who===yusuf||d.arrivals%3===0||Math.random()<.45)?s.friends[who]:-1;
+ const reunion=stories[who]&&s.friends[who]>=stories[who].length&&(who===yusuf||Math.random()<.45)?catchUp(who):null;
+ d.arrivals++;d.queue.push({who,recipe:menu.indexOf(recipe),id:d.arrivals,step:0,errors:0,stage:'hello',chat:false,chapter,reunion,deadline:d.minutes+29+(d.staff.includes('runner')?10:0)});
+}
+function advance(minutes){
+ const d=s.d;for(let i=0;i<minutes;i++){d.minutes++;
+ const keep=d.queue.filter(j=>j.deadline>d.minutes);d.lost+=d.queue.length-keep.length;d.queue=keep;
+ if(d.arrivals<target()&&d.minutes>=d.next){arrival();d.next=d.minutes+gap();if(d.n>=4&&d.arrivals<target()&&d.arrivals%5===2)arrival()}
+ }}
+function dispatch(){
+ const d=s.d;s.job=null;
+ if(!d.queue.length&&d.arrivals<target()){if(d.next<=d.minutes){arrival();d.next=d.minutes+gap()}else advance(d.next-d.minutes)}
+ s.job=d.queue.shift()||null;
+}
+function commit(){try{localStorage.setItem(key,JSON.stringify(s));saved=true}catch{saved=false}render()}
+function button(parent,label,action,primary=false,disabled=false){const b=document.createElement('button');b.textContent=label;b.disabled=disabled;if(primary)b.className='primary';b.onclick=action;parent.append(b);return b}
+function answer(chat){
+ const j=s.job;if(j.stage!=='hello')return;j.chat=chat;
+ if(chat){if(j.who===yusuf&&j.chapter===1&&!s.roseGiven)s.roseGiven=true;s.friends[j.who]++;if(j.reunion){s.lastTalk??={};s.lastTalk[j.who]=j.reunion.index}advance(3)}
+ advance(1);j.step=s.d.staff.includes('baker')?1:0;j.stage=j.step===menu[j.recipe].items.length?'cook':'mix';
+ note=j.step?'Deniz ilk malzemeyi hazırladı.':'';commit()
+}
+function add(item){const j=s.job,r=menu[j.recipe];if(j.stage!=='mix')return;
+ if(item!==r.items[j.step]){advance(2);j.errors++;note='Sıradaki malzeme: '+r.items[j.step]+'.'}
+ else{advance((['Çekirdek','İnce kahve'].includes(item)&&s.owned.includes('grinder')||item==='Un'&&s.owned.includes('mixer'))?1:2);j.step++;note=item+' eklendi.';if(j.step===r.items.length){j.stage='cook';note='Son hazırlama adımına geç.'}}commit()}
+function finish(){const j=s.job;if(j.stage!=='cook')return;advance(s.owned.includes('press')&&menu[j.recipe].items.includes('Çekirdek')&&!menu[j.recipe].need.includes('oven')?1:4);j.stage='ready';note='Sipariş hazır.';commit()}
+function serve(){const j=s.job;if(j.stage!=='ready')return;const prev=level(),r=menu[j.recipe],d=s.d;advance(1);
+ const tip=Math.max(0,(j.chat?3:1)+Math.min(3,s.friends[j.who])-j.errors)+(s.owned.includes('plant')?2:0);
+ const xp=8+(s.owned.includes('awning')?2:0);d.sales+=r.price;d.tips+=tip;d.ingredients+=Math.ceil(r.price*.36)+j.errors;d.served++;
+ s.coins+=r.price+tip;s.xp+=xp;s.count++;j.stage='paid';j.receipt=r.price+' ₺ satış + '+tip+' ₺ bahşiş · +'+xp+' XP';j.unlock=level()>prev?'Seviye '+level()+' açıldı! Tariflere ve dükkâna göz at.':'';note='';commit()}
+function closeDay(){const d=s.d;if(d.closed||d.queue.length||d.arrivals<target()||s.job?.stage!=='paid'&&s.job)return;
+ d.closed=true;s.coins-=d.ingredients+rent()+wage();d.balance=s.coins;s.history.push({day:d.n,net:d.sales+d.tips-d.ingredients-rent()-wage(),served:d.served});s.history=s.history.slice(-7);s.job=null;commit()}
+function newDay(){if(!s.d.closed)return;const staff=[...document.querySelectorAll('#shiftstaff input:checked')].map(e=>e.value);s.d=blankDay(s.d.n+1,s.coins);s.d.staff=staff;note='';dispatch();commit()}
+function buy(k){const [,lv,cost]=gear[k];if(s.owned.includes(k)||level()<lv||s.coins<cost||s.d.closed)return;s.coins-=cost;s.d.invest+=cost;s.owned.push(k);commit()}
+function report(){const d=s.d;$('summaryTitle').textContent=d.n+'. günün hesabı';$('ledger').replaceChildren();
+ for(const [name,v] of [['Açılış kasası',d.opening],['Satışlar',d.sales],['Bahşişler',d.tips],['Malzeme ve fire',-d.ingredients],['Kira ve enerji',-rent()],['Personel',-wage()],['İşletme kârı',s.history.at(-1).net],['Ekipman ve işe alım',-d.invest],['Kapanış kasası',d.balance]]){const row=document.createElement('div');row.className='row';const a=document.createElement('span'),b=document.createElement('b');a.textContent=name;b.textContent=v+' ₺';row.append(a,b);$('ledger').append(row)}
+ $('dailyResult').textContent=d.served+' servis · '+d.lost+' müşteri beklemekten vazgeçti.';
+ $('trend').textContent=s.history.map(x=>x.day+'. gün '+x.net+' ₺').join('  /  ');$('shiftstaff').replaceChildren();for(const k of ['runner','baker'].filter(k=>s.owned.includes(k))){const label=document.createElement('label'),box=document.createElement('input');box.type='checkbox';box.value=k;box.checked=d.staff.includes(k);label.append(box,' '+gear[k][0]+' · '+(k==='runner'?12:20)+' ₺');$('shiftstaff').append(label)}
+}
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      min-height: 100dvh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #111116;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 30px;
-    }
-
-    .container {
-      max-width: 700px;
-      animation: appear 2s ease forwards;
-    }
-
-    .heart {
-      font-size: 38px;
-      color: #c7859a;
-      margin-bottom: 45px;
-    }
-
-    h1 {
-      font-size: clamp(26px, 5vw, 42px);
-      line-height: 1.4;
-      margin-bottom: 45px;
-    }
-
-    p {
-      font-size: clamp(18px, 3vw, 25px);
-      line-height: 1.7;
-      color: #e4e4e7;
-    }
-
-    .small-heart {
-      color: #9999a3;
-      font-size: 22px;
-      margin-top: 55px;
-    }
-
-    @keyframes appear {
-      from {
-        opacity: 0;
-        transform: translateY(15px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <div class="container">
-    <div class="heart">♡</div>
-
-    <h1>Madem buraya tekrar geldin...</h1>
-
-    <p>Eğer benimle konuşmak istersen, beni ara.</p>
-
-    <div class="small-heart">♡</div>
-  </div>
-</body>
-</html>
+function render(){
+ const lv=level(),day=s.d.n;
+ $('welcome').hidden=!!s.name;document.querySelector('nav').hidden=!s.name||s.d.closed;$('top').hidden=!s.name||s.d.closed;$('summary').hidden=!s.name||!s.d.closed;
+ $('brandName').textContent=s.name||'Tiny Café';document.title=(s.name||'Tiny Café')+' · Sıla’nın kafesi';
+ if(!s.name||s.d.closed){$('bar').hidden=true;$('library').hidden=true;$('save').textContent=saved?'● Bu tarayıcıya kaydedildi':'Kayıt alanı kullanılamıyor.';if(!s.name){drawCafe();$('cover').getContext('2d').drawImage($('view'),0,0)}else report();return}
+ const j=s.job,r=menu[j.recipe],g=guests[j.who];
+ $('levelProgress').textContent=lv===limits.length?'Usta barista':s.xp+' / '+limits[lv]+' XP';
+ $('day').textContent='GÜN '+String(day).padStart(2,'0')+'  /  MAHALLE KAHVECİSİ';$('title').textContent={bar:'Servis tezgâhı',book:'Tarif defteri',shop:'Kafe dükkânı'}[tab];$('cash').textContent=s.coins+' ₺';$('level').textContent='SEVİYE '+lv;$('xp').style.width=(lv===limits.length?100:100*(s.xp-limits[lv-1])/(limits[lv]-limits[lv-1]))+'%';$('level').title=s.xp+' XP';$('save').textContent=saved?'● Bu tarayıcıya kaydedildi · '+s.count+' servis · '+s.xp+' XP':'Kayıt alanı kullanılamıyor. İlerleme bu oturumda tutuluyor.';
+ document.querySelectorAll('[data-tab]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.tab===tab));$('bar').hidden=tab!=='bar';$('library').hidden=tab==='bar';if(tab!=='bar'){catalog();return}
+ const d=s.d,chapter=j.reunion?.text||stories[j.who]?.[j.chapter],elapsed=d.minutes;
+ $('shiftClock').textContent='Vardiya '+Math.floor(elapsed/60+9)+':'+String(elapsed%60).padStart(2,'0');
+ $('queue').textContent='Gelen '+d.arrivals+'/'+target()+' · '+(d.queue.length?d.queue.length+' kişi sırada · '+d.queue.slice(0,3).map(q=>guests[q.who][0]+' ('+(q.deadline-elapsed)+' dk)').join(', '):'Bekleyen yok')+' · Her işlem oyun saatini ilerletir.';
+ $('ticketNo').textContent='FİŞ № '+String(j.id).padStart(2,'0');$('visits').textContent=s.visits[j.who]+'. ziyaret';$('guest').textContent=g[0]+' · '+g[1];
+ const quick=['Paket alacağım, Sıla.','Pencere kenarı ne güzel bugün.','Günaydın, her zamanki fincandan olsun.','Merhaba! Kokusunu sokaktan aldım.','Bugün molam kısa, hemen alayım.'];
+ $('speech').textContent='“'+(j.stage==='hello'?(chapter?.[0]||quick[(j.who+s.visits[j.who])%quick.length]):j.stage==='paid'?'Eline sağlık, Sıla.':j.chat&&chapter?chapter[2]:'Teşekkürler, burada bekliyorum.')+'”';$('order').textContent=j.stage==='paid'?j.receipt:'Bir '+r.name+' alabilir miyim?';$('talk').replaceChildren();
+ if(j.stage==='hello'){if(chapter)button($('talk'),chapter[1]+' (+3 dk)',()=>answer(true));button($('talk'),'Siparişi al',()=>answer(false),true)}
+ if(j.stage==='paid'){const last=d.arrivals===target()&&!d.queue.length;button($('talk'),last?'Kasayı kapat →':'Sıradaki müşteri →',()=>{note='';if(last)closeDay();else{dispatch();commit()}},true)}
+ $('benchTitle').textContent=r.name;$('steps').replaceChildren();r.items.forEach((item,i)=>{const el=document.createElement('span');el.className='step'+(i<j.step?' done':'');el.textContent=(i<j.step?'✓ ':i+1+'. ')+item;$('steps').append(el)});
+ $('msg').textContent=note||({hello:'Siparişi alarak hazırlığa başla.',mix:'Sıradaki malzeme: '+r.items[j.step],cook:'Malzemeler tamam.',ready:'Sipariş hazır.',paid:j.unlock||'Servis tamamlandı.'})[j.stage];$('stock').replaceChildren();$('tools').replaceChildren();
+ if(j.stage==='mix'){const pantry=[...new Set([...r.items,...menu.filter(available).flatMap(x=>x.items)])].slice(0,Math.max(4,r.items.length+1)).sort((a,b)=>a.localeCompare(b,'tr'));pantry.forEach((item,i)=>{let b=button($('stock'),item,()=>add(item));b.title=(i+1)+' · '+item})}
+ if(j.stage==='cook')button($('tools'),r.finish,finish,true);
+ if(j.stage==='ready')button($('tools'),'Servis et · '+r.price+' ₺',serve,true);drawCafe()
+}
+function catalog(){const book=tab==='book';$('intro').textContent=book?menu.filter(available).length+' / '+menu.length+' tarif siparişe açık.':'Kazancınla ekipman al ve kafeni geliştir.';$('list').replaceChildren();
+ function card(tag,name,body,detail){const el=document.createElement('article');el.className='card';for(const [kind,value,cls] of [['span',tag,'label'],['h3',name,''],['p',body,''],['p',detail,'muted group']]){const n=document.createElement(kind);n.textContent=value;n.className=cls;el.append(n)}$('list').append(el);return el}
+ if(book)for(const r of menu){const missing=r.need.filter(k=>!s.owned.includes(k));card('SV. '+r.lv+' · '+(available(r)?'MENÜDE':level()<r.lv?'KİLİTLİ':'EKİPMAN GEREKİYOR'),r.name,r.items.join(' → ')+' → '+r.finish,gear[r.need.at(-1)][0]+' · '+r.price+' ₺'+(missing.length?' · Gereken: '+missing.map(k=>gear[k][0]).join(', '):''))}
+ else for(const [k,[name,lv,cost,desc]] of Object.entries(gear).sort((a,b)=>a[1][1]-b[1][1])){const own=s.owned.includes(k),locked=level()<lv,poor=s.coins<cost;const el=card('SEVİYE '+lv,name,desc,own?'Kafende kurulu':cost+' ₺');if(!own)button(el,locked?'Seviye '+lv+' gerekli':poor?(cost-s.coins)+' ₺ eksik':'Satın al',()=>buy(k),true,locked||poor)}
+}
+document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{tab=b.dataset.tab;render()});
+document.addEventListener('keydown',e=>{if(tab!=='bar'||e.altKey||e.ctrlKey||e.metaKey||e.repeat)return;if(/^[1-6]$/.test(e.key))$('stock').children[Number(e.key)-1]?.click();if(e.key==='Enter'&&document.activeElement.tagName!=='BUTTON')$('tools').firstChild?.click()});
+$('welcome').onsubmit=e=>{e.preventDefault();const name=$('cafeName').value.trim();if(!name){$('cafeName').focus();return}s.name=name;if(!s.job)dispatch();commit()};
+$('tomorrow').onclick=newDay;
+function drawCafe(){
+ const c=$('view').getContext('2d'),dark='#403e36',wood='#915b43',cream='#f5d8a3',green='#526d55',terra='#bc7056',shadow='#765849';
+ function rect(x,y,w,h,color){c.fillStyle=color;c.fillRect(x,y,w,h)}
+ function poly(points,color){c.fillStyle=color;c.beginPath();points.forEach(([x,y],i)=>i?c.lineTo(x,y):c.moveTo(x,y));c.closePath();c.fill()}
+ function pot(x,y,size){rect(x-3,y-4,7,5,terra);rect(x-4,y-5,9,2,'#e3966a');for(let i=0;i<8;i++){const dx=Math.round(Math.sin(i*2.5)*size);rect(x+dx,y-8-(i%3)*3,4,5,i%2?'#627a51':'#8c9a64')}rect(x,y-12,1,7,green)}
+ rect(0,0,384,162,'#dfbe91');
+ for(let i=0;i<140;i++){let x=(i*73)%384,y=(i*37)%138;rect(x,y,4+i%8,1,'#d0aa80')}
+ rect(0,0,28,141,'#9b9a7b');rect(3,10,19,53,'#52695f');rect(6,13,13,47,'#a7b6a0');rect(4,34,17,3,cream);
+ rect(351,0,33,141,'#ba8668');for(let i=0;i<16;i++){rect(352,9*i,32,1,'#a87960');rect(357+(i%2)*11,9*i,1,9,'#a87960')}
+ rect(33,4,313,33,shadow);rect(36,6,307,26,green);rect(39,8,301,1,'#9baf88');rect(39,29,301,1,'#9baf88');
+ c.textAlign='center';c.fillStyle='#fff0c7';c.font='bold 21px Georgia';c.fillText(s.name||'Tiny Café',191,25,150);for(const x of [105,257]){rect(x,18,22,1,'#baaa78');rect(x+8,16,5,1,'#baaa78')}
+ rect(42,39,291,95,wood);rect(48,46,192,73,'#614f43');rect(52,51,183,64,'#cd9b73');rect(53,53,46,52,'#839c8c');rect(56,56,39,47,'#b3c2a5');
+ poly([[56,87],[74,58],[85,58],[56,100]],'#d4d5ac');rect(75,54,3,49,cream);rect(53,80,45,3,cream);
+ for(let k=0;k<2;k++){rect(112,66+k*18,75,3,wood);for(let i=0;i<7;i++){let x=114+i*10,y=60+k*18;rect(x,y,6,6,i%3===0?'#708271':i%3===1?'#f7d6a2':'#aa694e');rect(x+1,y-2,4,2,shadow)}}
+ rect(196,50,31,37,dark);rect(198,52,27,33,green);for(let i=0;i<5;i++)rect(203,58+i*5,13-i%3*3,1,cream);
+ // Coffee machine, cups and counter.
+ rect(65,95,36,16,'#49635b');rect(63,93,39,6,'#9ba494');rect(69,92,8,2,cream);rect(73,99,18,9,dark);rect(75,103,6,5,cream);rect(84,103,5,5,cream);rect(62,109,42,3,'#333f39');
+ for(let i=0;i<3;i++){rect(108+i*7,106,5,5,cream);rect(112+i*7,106,3,2,'#f6dfa9')}
+ rect(245,47,81,90,shadow);rect(251,50,68,87,green);rect(256,56,56,53,'#7e9584');poly([[258,91],[279,58],[294,58],[263,106]],'#9dac92');rect(281,55,4,54,green);rect(255,84,57,3,green);rect(257,114,54,17,'#405e4d');rect(308,104,3,7,'#e5bc77');
+ rect(42,111,198,6,'#624835');rect(39,110,202,3,'#efd09c');rect(45,117,192,19,'#bc8761');for(let i=0;i<18;i++)rect(47+i*11,117,1,19,'#a77554');
+ const aw=s.owned.includes('awning')?'#799078':'#b86951';
+ for(let i=0;i<22;i++){let x=31+i*14;poly([[x+5,35],[x+19,35],[x+14,49],[x,49]],i%2?cream:aw);rect(x,49,14,5,i%2?cream:aw);rect(x+2,54,10,2,i%2?'#d7b388':shadow)}
+ rect(32,33,309,3,shadow);rect(338,48,3,88,shadow);rect(0,137,384,25,'#a79882');for(let y=0;y<3;y++){rect(0,140+y*9,384,1,'#8e826f');for(let x=-10;x<384;x+=24)rect(x+(y%2)*12,141+y*9,1,7,'#918570')}
+ // Street tree and freestanding chalkboard.
+ rect(12,74,6,61,wood);poly([[14,95],[1,78],[2,75],[16,90],[23,72],[26,70]],wood);for(let i=0;i<35;i++){let x=-8+(i*17)%41,y=41+(i*13)%36;rect(x,y,8+i%7,7+i%5,['#667954','#849066','#99a06b','#586f51'][i%4])}
+ rect(16,119,16,19,terra);pot(24,118,8);rect(44,129,2,18,wood);rect(68,132,3,16,wood);poly([[47,119],[69,119],[66,144],[42,144]],wood);poly([[49,121],[66,121],[63,141],[45,141]],dark);c.fillStyle=cream;c.font='italic 7px Georgia';c.fillText('Menü',56,130);rect(49,134,11,1,cream);rect(49,137,7,1,cream);
+ const skin='#eab187',shirt='#79968a';
+ rect(155,73,22,8,dark);rect(153,76,27,17,dark);rect(157,79,19,16,skin);rect(157,77,9,5,dark);rect(169,77,8,3,dark);rect(160,85,2,2,dark);rect(172,85,2,2,dark);rect(166,91,5,1,wood);rect(162,94,9,5,skin);poly([[155,97],[162,95],[166,100],[171,95],[178,98],[183,109],[149,109]],shirt);rect(160,102,13,8,'#ebc898');rect(161,97,2,7,'#ebc898');rect(171,97,2,7,'#ebc898');
+ // Sıla's round glasses, bridge and braid.
+ rect(158,83,7,1,dark);rect(158,84,1,4,dark);rect(164,84,1,4,dark);rect(159,88,5,1,dark);
+ rect(168,83,7,1,dark);rect(168,84,1,4,dark);rect(174,84,1,4,dark);rect(169,88,5,1,dark);rect(165,85,3,1,dark);rect(151,90,4,9,dark);rect(151,99,4,2,terra);
+ if(s.roseGiven){rect(130,104,5,6,'#abc2af');rect(132,97,1,8,green);rect(130,99,2,2,green);rect(130,93,5,4,'#b84659');rect(131,92,3,2,'#e27d87')}
+ pot(222,110,7);if(s.owned.includes('plant'))for(const x of [57,131,202]){pot(x,110,5);rect(x-4,96,4,3,'#c77980');rect(x+3,99,3,3,'#ecc18e')}
+ if(s.owned.includes('pot')){rect(134,104,7,6,'#b2764c');rect(140,103,8,2,wood)}if(s.owned.includes('oven')){rect(186,93,25,16,'#717975');rect(189,97,18,9,dark);rect(192,101,12,3,'#d79c69')}
+ rect(359,90,17,43,shadow);rect(361,93,13,36,green);pot(366,139,9);
+ // A ginger cat asleep on the warm pavement.
+ c.save();c.translate(-119,-36);rect(300,145,19,2,'#8f816b');rect(300,140,16,5,'#c98a55');rect(311,136,8,7,'#dd9c60');rect(312,134,2,3,wood);rect(317,134,2,3,wood);rect(315,139,2,1,dark);rect(297,138,4,5,'#d79b65');rect(301,139,2,4,wood);c.restore();
+ if(s.name&&!s.d.closed){const people=[...(s.job?[s.job]:[]),...s.d.queue].slice(0,6);people.forEach((j,i)=>{const x=112+i*22,y=137+i%2*4;rect(x-1,y-24,10,9,['#d7a47f','#aa795c','#d8ac8e'][j.who%3]);rect(x-2,y-26,11,4,['#513e34','#675547','#997359'][j.who%3]);rect(x-3,y-15,14,12,['#789686','#aa7279','#656f84','#ad8b55'][j.who%4]);rect(x-2,y-3,4,6,dark);rect(x+5,y-3,4,6,dark)})}
+}
+commit();
+</script></html>
